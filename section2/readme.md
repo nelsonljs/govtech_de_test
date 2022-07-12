@@ -30,7 +30,6 @@ Each sale transaction contains the following information:
     - Date
     - Customer
     - Cars
-    - Manufacturer info??
 
 - Fact Tables:
     - Sale transaction
