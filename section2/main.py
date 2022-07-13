@@ -1,3 +1,7 @@
+'''
+Sample queries as requested by team. POC
+'''
+
 from model import *
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base

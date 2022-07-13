@@ -18,11 +18,13 @@ Each sale transaction contains the following information:
 - Salesperson
 - Characteristics of car sold
 
+---
+
 ## Data model
 
 - Assumptions:
     - Cars can have a different selling price at different sale prices.
-    - Cars will always have the same manufacturer, model name, serial number, and weight.
+    - Individual cars will always have the same manufacturer, model name, and weight, and unique serial number.
     - A dim_date table at day level is necessary.
 
 - Dimension Tables:
@@ -43,10 +45,19 @@ Data is to be received as Transactional Facts with the following columns:
 | Customer Name ||
 | Customer Phone||
 | Salesperson Name? | Assume unique, can be id |
-| Car characteristics | Assume consistent, can be used to build dimensions on ingestion |
+| Car characteristics | Assume consistent, can be used to build dimensions on ingestion, alternatively, can be used to query the dim_car if it was pre-populated. |
 
 Build ORM representation for dialect agnostic, test locally on sqlite db.
 
 ## Querying
 
 Build queries based on orm representation, using sqlalchemy as glue.
+
+## Docker-compose
+
+Docker compose is used to initialise the database, the db migration initialisation is handled with SQLAlchemy, to remain dialect agnostic. Because of that, a separate container is used to populate initial dimension tables as necessary.
+
+Run docker-compose up at docker-compose.yml file to start the containers. Python container will run initialising script and shutdown. 
+```
+docker-compose up
+```

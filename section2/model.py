@@ -16,7 +16,7 @@ class DimCar(Base):
     id = Column(Integer, primary_key=True)
     manufacturer = Column(String)
     model_name = Column(String)
-    serial_number = Column(String)
+    serial_number = Column(String, unique=True)
     weight = Column(Numeric)
 
     # @validates('manufacturer')
@@ -71,7 +71,7 @@ def main():
 
     Base.metadata.create_all(bind=engine)
 
-    print('created.')
+    print('Tables created.')
 
     with Session(engine) as s:
         mydate = datetime(2020,1,1)
