@@ -46,3 +46,7 @@ Data is to be received as Transactional Facts with the following columns:
 | Car characteristics | Assume consistent, can be used to build dimensions on ingestion |
 
 Build ORM representation for dialect agnostic, test locally on sqlite db.
+
+## Querying
+
+Build queries based on orm representation, using sqlalchemy as glue.
