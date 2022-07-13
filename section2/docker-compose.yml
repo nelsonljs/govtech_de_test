@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  postgresql:
+    image: "postgres:latest"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=helloworld
+    ports:
+      - "5432:5432"
+
+    volumes: # Persist the written volumes in the local machine.
+      - db:/var/lib/postgresql/data
+
+  ## Initialise database.
+  db_initialise:
+    build: .
+    restart: on-failure:5 # restart since order of startup might not be complete, stop after 5 tries, since it might reopening the db.
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=helloworld
+      - POSTGRES_CONTAINER=postgresql
+    depends_on:
+      - postgresql
+    links: 
+        - postgresql
+
+volumes:
+  db:
+    driver: local

@@ -2,11 +2,12 @@ from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import validates, Session
 from sqlalchemy.sql import *
-import pandas as pd
 import random
+import os
 
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
+from dotenv import load_dotenv
+load_dotenv()
 
 Base = declarative_base()   
 
@@ -58,11 +59,16 @@ class FactSales(Base):
     sales_price = Column(Integer)
 
 
-def main(db_name = 'demo'):
+def main():
     '''
     Create sample sqlite database.
     '''
-    engine = create_engine(f'sqlite:///data/{db_name}.db')
+    postgres_pw = os.environ.get("POSTGRES_PASSWORD")
+    postgres_db = os.environ.get("POSTGRES_DB")
+    docker_container_name = os.environ.get("POSTGRES_CONTAINER")
+    # engine = create_engine(f'sqlite:///data/{db_name}.db')
+    engine = create_engine(f'postgresql://postgres:{postgres_pw}@{docker_container_name}:5432/{postgres_db}')
+
     Base.metadata.create_all(bind=engine)
 
     print('created.')
@@ -80,27 +86,6 @@ def main(db_name = 'demo'):
             )
             mydate += timedelta(days=1)
         
-        s.commit()
-
-        s.add(DimCustomer(name='Harry',phone=123456,registered_date=datetime(2021,5,12)))
-        s.add(DimCustomer(name='Ron',phone=12345,registered_date=datetime(2021,6,12)))
-        s.add(DimCustomer(name='Hermione',phone=1234,registered_date=datetime(2021,7,12)))
-        s.add(DimCustomer(name='Hagrid',phone=12356,registered_date=datetime(2021,8,12)))
-
-        s.commit()
-
-        s.add(FactSales(customer_id=1,salesperson_id=1,productcar_id=1,sales_date_id='20210513',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=1,salesperson_id=1,productcar_id=1,sales_date_id='20210113',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=2,salesperson_id=1,productcar_id=1,sales_date_id='20210213',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=2,salesperson_id=1,productcar_id=1,sales_date_id='20210513',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=2,salesperson_id=1,productcar_id=1,sales_date_id='20210513',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=2,salesperson_id=1,productcar_id=1,sales_date_id='20210513',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=3,salesperson_id=1,productcar_id=1,sales_date_id='20210613',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=4,salesperson_id=1,productcar_id=1,sales_date_id='20210113',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=4,salesperson_id=1,productcar_id=1,sales_date_id='20210113',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=4,salesperson_id=1,productcar_id=1,sales_date_id='20210213',sales_price=random.randrange(100000,150000)))
-        s.add(FactSales(customer_id=4,salesperson_id=1,productcar_id=1,sales_date_id='20210513',sales_price=random.randrange(100000,150000)))
-
         s.commit()
 
 if __name__ == '__main__':
