@@ -10,8 +10,14 @@ Produce a system architecture diagram (e.g. Visio, Powerpoint) using any of the 
 
 ### Assumptions
 
+- Expecting Webapp1 from users to be streaming data in as a web request.
+
+__Developed Software__
 - The developed software for processing has exposed APIs for usage, and will be interfaced from pipeline as a black box. It will not be run serverless, hence no requirement to develop ec2 compute cluster in the processing layer. 
 
+- The developed software image processing speed is ambiguous, use a queue system to ensure data fidelity. The software will poll the queue for incoming messages.
+
+__Data Warehousing__
 - A skeletal Data warehousing system for simple BI is provided. No extra metadata will be captured beyond what is available from S3 to reduce components to maintain. No OLTP layer is provided.
 
 - Additional visualization is provided, and an optional Audit table store in data warehouse (Redshift) is also possible if deemed necessary. 
