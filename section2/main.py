@@ -8,8 +8,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import validates, Session
 from sqlalchemy.sql import *
 import pandas as pd
+from dotenv import load_dotenv
+load_dotenv()
 
-engine = create_engine(f'sqlite:///data/demo.db')
+postgres_pw = os.environ.get("POSTGRES_PASSWORD")
+postgres_db = os.environ.get("POSTGRES_DB")
+docker_container_name = os.environ.get("POSTGRES_CONTAINER")
+# engine = create_engine(f'sqlite:///data/demo.db')
+engine = create_engine(f'postgresql://postgres:{postgres_pw}@{docker_container_name}:5432/{postgres_db}')
 
 with Session(engine) as s:
 

@@ -25,6 +25,8 @@ class Pipeline1:
         '''
         map function for processing each row of data.
         '''
+
+        ## Handling Honorifics.
         error_msg=''
         honorifics = ['Mr.','Mrs.', 'Miss', 'Ms.', 'Dr.', 'DVM', 'DDS', 'PhD', 'MD']
 
@@ -64,8 +66,10 @@ class Pipeline1:
             is_above_100 = 'error'
             error_msg = 'bad price'
 
+        ## Add singular suffix back to name.
         if mysuffix:
             first_name = f'{first_name} {mysuffix}'
+
         return first_name, last_name, myprice, is_above_100, error_msg
 
     def process_src_folder(self):

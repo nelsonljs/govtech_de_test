@@ -19,6 +19,7 @@ class DimCar(Base):
     serial_number = Column(String, unique=True)
     weight = Column(Numeric)
 
+    ### Validation for a car and other dimensions can be specified.
     # @validates('manufacturer')
     # def validate_dob(self, key, value):
     #     if value not in ['Honda','Toyota']:
@@ -43,7 +44,7 @@ class DimSalesperson(Base):
     employed_date = Column(DateTime)
 
 class DimCustomer(Base):
-    __tablename__ = "dim_customer"
+    __tablename__ = "dim_customers"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     phone = Column(String)
@@ -56,7 +57,7 @@ class FactSales(Base):
     salesperson_id = Column(Integer, ForeignKey('dim_salesperson.id'))
     productcar_id = Column(Integer, ForeignKey('dim_cars.id'))
     sales_date_id = Column(Integer, ForeignKey('dim_dates.id'))
-    sales_price = Column(Integer)
+    sales_price = Column(Numeric)
 
 
 def main():
@@ -73,6 +74,7 @@ def main():
 
     print('Tables created.')
 
+    ## Setting up dimdates table for BI requirements.
     with Session(engine) as s:
         mydate = datetime(2020,1,1)
         while mydate < datetime.today():
