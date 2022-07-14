@@ -49,6 +49,8 @@ def main():
             continue
     
         mydf = pd.read_csv(os.path.join(src_folder, myfile)).fillna('')
+
+        ## Vectorized application
         mydf['firstname'], mydf['lastname'], mydf['price'], mydf['above_100'], mydf['error_msg'] = zip(*mydf.apply(process_row, axis=1))
 
         ## For downstream processing, split df into good and poor rows.
