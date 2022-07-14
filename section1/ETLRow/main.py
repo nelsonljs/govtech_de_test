@@ -32,6 +32,17 @@ class Pipeline1:
         for title in honorifics:
             myname = myname.replace(title,'').strip()
 
+        ## Handling Jr., Sr. and Firstname suffixes, assume only 1 can be present.
+
+        name_suffixes = ['Jr.', 'Sr.', 'IV', 'III', 'II', 'I'] # Order of III, II, I matters.
+        for suffix in name_suffixes:
+            if myname.endswith(suffix):
+                mysuffix=suffix
+                myname = myname.replace(suffix,'').strip()
+                break
+            else:
+                mysuffix = False
+
         split_name = myname.split(' ')
         if not split_name:
             error_msg = 'no name'
@@ -53,6 +64,8 @@ class Pipeline1:
             is_above_100 = 'error'
             error_msg = 'bad price'
 
+        if mysuffix:
+            first_name = f'{first_name} {mysuffix}'
         return first_name, last_name, myprice, is_above_100, error_msg
 
     def process_src_folder(self):
@@ -98,7 +111,6 @@ class Pipeline1:
         '''
         Driver script
         '''
-
         self.process_src_folder()
         self._export_files()
 

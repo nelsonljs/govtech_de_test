@@ -31,3 +31,7 @@ Currently no intention to support as data is received daily anyway, so expected 
 Since data available at 1am daily, schedule for run at 1.05am.
 
 Erroneous rows are compiled into **error.csv** for further processing.
+
+### ETL Pipeline
+
+Actual ETL pipeline is packaged into a module for portability. Easier management for implementation on different automation tools.

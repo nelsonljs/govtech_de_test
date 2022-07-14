@@ -1,0 +1,40 @@
+,name,price,firstname,lastname,above_100,error_msg
+112,,Mr. Manuel Mcfarland Jr.,,,error,bad price
+128,,Mr. Brian Bradley,,,error,bad price
+200,,Mr. Trevor Smith,,,error,bad price
+224,,Mr. Tracy Davis MD,,,error,bad price
+740,,Mr. Jake Ortiz,,,error,bad price
+770,,Mr. James Gay,,,error,bad price
+899,,Mr. Kenneth Robinson,,,error,bad price
+953,,Mr. James Kaiser,,,error,bad price
+988,,Mr. Anthony Dixon,,,error,bad price
+1014,,Mr. Eddie Hendrix DDS,,,error,bad price
+1346,,Mr. Gregory Horn,,,error,bad price
+1400,,Mr. Donald Sanchez,,,error,bad price
+1627,,Mr. Tyler Love,,,error,bad price
+1646,,Mr. Joseph Scott,,,error,bad price
+1662,,Mr. David Jones,,,error,bad price
+1771,,Mr. Robert Spence,,,error,bad price
+2298,,Mr. Jesse Hawkins Jr.,,,error,bad price
+2376,,Mr. Paul Pope,,,error,bad price
+2385,,Mr. Charles Arroyo,,,error,bad price
+2453,,Mr. Alex Zamora,,,error,bad price
+2618,,Mr. Michael Evans,,,error,bad price
+2655,,Mr. Matthew Bailey MD,,,error,bad price
+2866,,Mr. Michael Vaughn,,,error,bad price
+2984,,Mr. Billy Morgan,,,error,bad price
+3004,,Mr. Michael Frey,,,error,bad price
+3027,,Mr. Jack Morales,,,error,bad price
+3083,,Mr. Michael Garcia,,,error,bad price
+3278,,Mr. Michael Brown,,,error,bad price
+3334,,Mr. Paul Porter MD,,,error,bad price
+3382,,Mr. Steven Hayes DDS,,,error,bad price
+3411,,Mr. Thomas Guzman,,,error,bad price
+3539,,Mr. Michael Maynard,,,error,bad price
+3542,,Mr. Christopher Mann PhD,,,error,bad price
+3792,,Mr. Jeffrey King,,,error,bad price
+3829,,Mr. Harold Reese PhD,,,error,bad price
+3958,,Mr. Justin Suarez,,,error,bad price
+4008,,Mr. Paul Walker,,,error,bad price
+4197,,Mr. Allen Hernandez,,,error,bad price
+4214,,Mr. Joshua Simmons,,,error,bad price

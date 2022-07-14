@@ -132,3 +132,6 @@ data/
 dump/
 final/
 *.csv
+
+!*consolidated_20220714.csv
+!*error_20220714.csv
