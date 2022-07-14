@@ -51,7 +51,7 @@ Build ORM representation for dialect agnostic, test locally on sqlite db.
 
 ## Querying
 
-Build queries based on orm representation, using sqlalchemy as glue.
+Build queries based on orm representation, using sqlalchemy as glue. Sample queries are provided in sample_query.py
 
 ## Docker-compose
 

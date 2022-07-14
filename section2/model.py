@@ -62,7 +62,7 @@ class FactSales(Base):
 
 def main():
     '''
-    Create sample sqlite database.
+    Create database.
     '''
     postgres_pw = os.environ.get("POSTGRES_PASSWORD")
     postgres_db = os.environ.get("POSTGRES_DB")
