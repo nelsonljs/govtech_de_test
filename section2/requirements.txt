@@ -1,2 +1,2 @@
-SQLAlchemy
-python-dotenv
+SQLAlchemy==1.4.39
+python-dotenv==0.20.0

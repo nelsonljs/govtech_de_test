@@ -2,7 +2,6 @@ from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import validates, Session
 from sqlalchemy.sql import *
-import random
 import os
 
 from datetime import datetime, timedelta
